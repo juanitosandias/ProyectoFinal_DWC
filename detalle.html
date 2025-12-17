@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="detalle.css"> </head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <a href="home.html" class="icon-btn"><i class="fas fa-arrow-left"></i> Volver</a>
+        </div>
+        <div class="logo">Cool Center</div>
+        <div class="nav-right">
+            <a href="carrrrito.html" class="icon-btn"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+
+    <main class="detail-container">
+        
+        <section class="product-top">
+            
+            <div class="detail-image">
+                <img id="main-img" src="" alt="Producto">
+            </div>
+
+            <div class="detail-info">
+                <h1 id="prod-name">Cargando...</h1>
+                <h2 id="prod-price" class="main-price">$0.00</h2>
+
+                <div class="specs-container">
+                    <ul class="specs-list">
+                        <li><strong>Marca:</strong> <span id="prod-marca">-</span></li>
+                        <li><strong>Modelo:</strong> <span id="prod-modelo">-</span></li>
+                        <li><strong>Stock:</strong> <span id="prod-stock">-</span></li>
+                        <li><strong>Garantía:</strong> <span id="prod-garantia">-</span></li>
+                    </ul>
+                </div>
+                <div class="description-box">
+                    <h3>Info:</h3>
+                    <p id="prod-desc">
+                        Cargando descripción...
+                    </p>
+                </div>
+            </div>
+
+            <div class="buy-box">
+                <p class="price-summary" id="summary-price">$0.00</p>
+                <p class="shipping"><i class="fas fa-truck"></i> Envío Gratis a tu casa</p>
+                
+                <div class="quantity-selector">
+                    <label>Cantidad:</label>
+                    <select id="quantity">
+                        <option value="1">1 unidad</option>
+                        <option value="2">2 unidades</option>
+                        <option value="3">3 unidades</option>
+                    </select>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="btn-add-detail" class="btn-main">Añadir al carrito</button>
+                    <button class="btn-secondary">Comprar ahora</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="extra-images">
+            <h3>Imágenes perronas</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+            </div>
+        </section>
+
+        <section class="similar-products">
+            <h3>Productos Similares</h3>
+            <div class="products" id="similar-container">
+                </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="detalle.js"></script>
+</body>
+</html>

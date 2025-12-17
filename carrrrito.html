@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Carrito - Cool Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <a href="home.html" class="icon-btn"><i class="fas fa-arrow-left"></i></a>
+            <div class="logo">
+                <i class="fas fa-shopping-cart"></i> Cool Center
+            </div>
+        </div>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar productos...">
+        </div>
+        <div class="nav-right">
+            <a href="#" class="icon-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="icon-btn"><i class="fas fa-box"></i></a>
+            <a href="login.html" class="icon-btn"><i class="fas fa-user"></i></a>
+        </div>
+    </header>
+
+    <main class="cart-container">
+        
+        <section class="cart-list">
+            <h1><i class="fas fa-shopping-cart"></i> Carrito Pro</h1>
+            
+            <div id="cart-items-container">
+                </div>
+        </section>
+
+        <aside class="cart-summary">
+            <h3>Resumen de compra</h3>
+            
+            <div id="summary-list" class="summary-details">
+                </div>
+
+            <div class="summary-total">
+                <p>Total a pagar:</p>
+                <h2 id="total-price">$0.00 MXN</h2>
+            </div>
+
+            <button class="checkout-btn">Proceder al Pago</button>
+        </aside>
+
+    </main>
+
+    <script src="carrito.js"></script>
+</body>
+</html>

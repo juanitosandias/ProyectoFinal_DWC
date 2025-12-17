@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Center - Tienda Online</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <button id="menu-btn" class="icon-btn"><i class="fas fa-bars"></i></button>
+            <div class="logo">
+                <i class="fas fa-shopping-cart"></i> Cool Center
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar productos...">
+        </div>
+
+        <div class="nav-right">
+            <a href="carrrrito.html" class="icon-btn"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="icon-btn"><i class="fas fa-box"></i></a> <a href="login.html" class="icon-btn"><i class="fas fa-user"></i></a>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Novedades</h2>
+            </div>
+        </section>
+
+        <section class="mid-section">
+            <div class="card category-card">
+                <h3>Categorías</h3>
+                <button class="btn">Ver todo</button>
+            </div>
+            <div class="card offer-card">
+                <h3>Ofertas</h3>
+                <button class="btn">Ver descuentos</button>
+            </div>
+        </section>
+        <section class="products" id="products-container">
+        </section>
+    </main>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="global.js"></script>
+</body>
+</html>
