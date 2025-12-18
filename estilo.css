@@ -1,4 +1,4 @@
-/* Reset básico para quitar márgenes por defecto */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,9 +10,9 @@ body {
     background-color: #f4f4f4;
 }
 
-/* HEADER - Estilo Cyan de tu imagen */
+/* HEADER */
 header {
-    background-color: #8beffa; /* Color aproximado de la imagen */
+    background-color: #8beffa;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
@@ -71,7 +71,7 @@ main {
 
 /* Hero Section (Novedades/Equipo) */
 .hero {
-    background-color: #dcdcdc; /* Gris de la imagen */
+    background-color: #dcdcdc; 
     padding: 40px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -93,7 +93,7 @@ main {
 }
 
 .card {
-    flex: 1; /* Ocupan el mismo espacio */
+    flex: 1; 
     background-color: #dcdcdc;
     padding: 40px;
     border-radius: 10px;
@@ -132,7 +132,7 @@ main {
 }
 
 .product-card:hover {
-    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    transform: translateY(-5px); /* Efecto de elevación */
 }
 
 .product-image {
@@ -142,7 +142,7 @@ main {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    transform: rotate(0deg); /* He quitado la rotación del texto para mejor lectura, pero puedes poner -45deg si quieres */
+    transform: rotate(0deg); 
 }
 
 .product-info {
@@ -165,27 +165,27 @@ main {
     background-color: #6bdce8;
 }
 
-/* RESPONSIVE (Para celulares) */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .search-bar {
-        display: none; /* Ocultamos búsqueda en móviles para ahorrar espacio */
+        display: none; 
     }
     .mid-section {
         flex-direction: column; /* Apilamos categorías y ofertas */
     }
 }
-/* Layout Principal: Grid de 2 columnas (Izquierda ancha, derecha estrecha) */
+/* Layout Principal*/
 .cart-container {
     max-width: 1200px;
     margin: 30px auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 2fr 1fr; /* 2 partes para items, 1 parte para resumen */
+    grid-template-columns: 2fr 1fr; 
     gap: 30px;
     align-items: start; /* Para que el resumen no se estire hacia abajo */
 }
 
-/* === IZQUIERDA: LISTA DE PRODUCTOS === */
+/* LISTA DE PRODUCTOS  */
 .cart-list h1 {
     margin-bottom: 20px;
     font-size: 1.5rem;
@@ -193,7 +193,7 @@ main {
 }
 
 .cart-item {
-    background-color: #e0e0e0; /* El gris de tu boceto */
+    background-color: #e0e0e0; 
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
@@ -206,7 +206,7 @@ main {
 
 /* Efecto visual cuando seleccionas un item */
 .cart-item.selected {
-    background-color: #d1f7ff; /* Un azul muy suave al seleccionar */
+    background-color: #d1f7ff; 
     border: 1px solid #8beffa;
 }
 
@@ -215,7 +215,7 @@ main {
     width: 25px;
     height: 25px;
     cursor: pointer;
-    accent-color: #333; /* Color del tick */
+    accent-color: #333;
 }
 
 .item-info {
@@ -243,12 +243,12 @@ main {
     color: #ccc;
 }
 
-/* === DERECHA: RESUMEN === */
+/* RESUMEN */
 .cart-summary {
-    background-color: #e0e0e0; /* El gris de tu boceto */
+    background-color: #e0e0e0; 
     padding: 30px;
     border-radius: 10px;
-    position: sticky; /* Truco: Se queda fijo al hacer scroll */
+    position: sticky; 
     top: 100px; 
 }
 
@@ -331,7 +331,6 @@ main {
     color: white; 
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para leer mejor */
     
-    /* Altura mínima */
     min-height: 300px; 
 }
 
@@ -343,9 +342,9 @@ main {
 
 /* TARJETAS (Categorías y Ofertas) */
 
-/* Estilos compartidos para que el texto resalte */
+/* Estilos compartidos */
 .category-card, .offer-card {
-    background-size: cover !important; /* sobreescribir el gris */
+    background-size: cover !important; 
     background-position: center !important;
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
@@ -365,12 +364,12 @@ main {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('imgpros/categorias.jpeg');
 }
 
-/* Imagen específica para Ofertas */
+/* Imagen para Ofertas */
 .offer-card {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('imgpros/ofertas.jpg');
 }
 
-/* Efecto Hover: Al pasar el mouse, crecen un poco */
+/* Efecto Hover */
 .category-card:hover, .offer-card:hover {
     transform: scale(1.02);
 }

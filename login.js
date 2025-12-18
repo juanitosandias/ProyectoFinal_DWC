@@ -1,19 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // === CONFIGURACIÓN BASE DE DATOS ===
+    // Config BD
     const dbName = "CoolCenterDB";
-    // IMPORTANTE: Debe coincidir con la versión del Home (que es 2)
     const dbVersion = 2; 
     let db;
 
     const request = indexedDB.open(dbName, dbVersion);
 
-    // Si la base de datos no existe o la versión cambió
     request.onupgradeneeded = (event) => {
         db = event.target.result;
-        // CUMPLE REQUISITO: Guardar datos en Api IndexDB [cite: 14]
+        // Guardar datos en Api IndexDB //
         if (!db.objectStoreNames.contains("users")) {
-            // El email será la llave única (no puede haber dos iguales)
+            // El email será la llave única //
             db.createObjectStore("users", { keyPath: "email" });
         }
         if (!db.objectStoreNames.contains("cart")) {
@@ -30,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Error DB:", event.target.error);
     };
 
-    // === INTERFAZ VISUAL (Switch Login/Registro) ===
+    // Switch Login/Registro //
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
     const showRegisterBtn = document.getElementById('show-register');
@@ -38,12 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showRegisterBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        loginForm.classList.remove('active'); // Animación CSS
+        loginForm.classList.remove('active'); // Animación //
         setTimeout(() => {
             loginForm.style.display = 'none';
             registerForm.style.display = 'block';
             setTimeout(() => registerForm.classList.add('active'), 10);
-        }, 300); // Espera a que termine la transición CSS
+        }, 300);
     });
 
     showLoginBtn.addEventListener('click', (e) => {
@@ -56,52 +54,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     });
 
-    // === LÓGICA DE REGISTRO ===
+    // REGISTRO //
     registerForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Obtener valores y quitar espacios vacíos (.trim())
+        // Obtener valores y quitar espacios vacíos //
         const name = document.getElementById('reg-name').value.trim();
         const email = document.getElementById('reg-email').value.trim();
         const password = document.getElementById('reg-pass').value.trim();
 
-        // CUMPLE REQUISITO: Que todos los campos sean obligatorios [cite: 19]
+        // Campos obligatorios //
         if (!name || !email || !password) {
             mostrarToast("Por favor completa todos los campos", "error");
             return;
         }
 
-        // CUMPLE REQUISITO: Password encriptado [cite: 21]
-        // Usamos btoa() para codificar en Base64 (cumple nivel académico)
+        // Password encriptado //
         const encryptedPass = btoa(password);
 
         const transaction = db.transaction(["users"], "readwrite");
         const store = transaction.objectStore("users");
         
         const newUser = { name, email, password: encryptedPass };
-        const addReq = store.add(newUser); // Intenta guardar
+        const addReq = store.add(newUser);
 
         addReq.onsuccess = () => {
-            // CUMPLE REQUISITO: Mostrar pop-up Toastify "Registro exitoso" [cite: 15]
+            // Registro exitoso //
             mostrarToast("¡Registro exitoso! Inicia sesión", "success");
             
-            // CUMPLE REQUISITO: Redirigir a la página de login [cite: 15]
+            // Redirigir a login //
             registerForm.reset();
             showLoginBtn.click(); 
         };
 
         addReq.onerror = () => {
-            // Validación extra: Si el email ya existe (clave duplicada)
+            // Validación extra: Si el email ya existe //
             mostrarToast("Este correo ya está registrado", "error");
         };
     });
 
-    // === LÓGICA DE LOGIN ===
+    // LOGIN //
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const email = document.getElementById('login-email').value.trim();
         const password = document.getElementById('login-pass').value.trim();
-        const encryptedPass = btoa(password); // Encriptar para comparar
+        const encryptedPass = btoa(password);
 
         const transaction = db.transaction(["users"], "readonly");
         const store = transaction.objectStore("users");
@@ -112,14 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
         getReq.onsuccess = () => {
             const user = getReq.result;
 
-            // CUMPLE REQUISITO: Validar usuario/contraseña o mostrar error [cite: 17]
+            // Validar usuario/contraseña //
             if (user && user.password === encryptedPass) {
                 mostrarToast("Bienvenido " + user.name, "success");
                 
-                // Guardamos sesión para saber quién es en el Home
+                // Guardar sesión //
                 localStorage.setItem("userSesion", JSON.stringify(user));
 
-                // CUMPLE REQUISITO: Redirigir a Pagina Principal [cite: 16]
+                // Redirigir a Pagina Principal //
                 setTimeout(() => window.location.href = "home.html", 1500);
             } else {
                 mostrarToast("Usuario o contraseña incorrectos", "error");
@@ -131,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     });
 
-    // Función auxiliar Toastify
+    // Función Toastify
     function mostrarToast(msg, type) {
         let bg = type === "success" ? "linear-gradient(to right, #00b09b, #96c93d)" : "linear-gradient(to right, #ff5f6d, #ffc371)";
         

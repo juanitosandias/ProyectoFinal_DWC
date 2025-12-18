@@ -1,28 +1,26 @@
-/* detalle.css - Estilo Cool Center */
-
 .detail-container {
     max-width: 1200px;
     margin: 30px auto;
     padding: 0 20px;
 }
 
-/* === GRID SUPERIOR === */
+/*  GRID SUPERIOR */
 .product-top {
     display: grid;
-    grid-template-columns: 1.5fr 1.5fr 1fr; /* Imagen - Info - Caja Compra */
+    grid-template-columns: 1.5fr 1.5fr 1fr; 
     gap: 40px;
     margin-bottom: 50px;
 }
 
-/* 1. Imagen Grande */
+/* Imagen Grande */
 .detail-image {
-    background-color: white; /* Fondo blanco limpio para el producto */
+    background-color: white; /* Fondo para producto */
     border-radius: 10px;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra suave */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
     border: 1px solid #eee;
 }
 
@@ -32,7 +30,7 @@
     object-fit: contain;
 }
 
-/* 2. Info Central */
+/* Info Central */
 .detail-info h1 {
     font-size: 2rem;
     color: #333;
@@ -41,10 +39,10 @@
 
 .main-price {
     font-size: 2rem;
-    color: #333; /* Negro en lugar de rojo */
+    color: #333; 
     font-weight: bold;
     margin-bottom: 20px;
-    border-bottom: 2px solid #8beffa; /* Detalle Cyan sutil */
+    border-bottom: 2px solid #8beffa; 
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -56,16 +54,16 @@
     color: #555;
 }
 
-/* 3. Caja de Compra (Buy Box) */
+/* Caja de Compra */
 .buy-box {
     background-color: white;
-    border: 1px solid #e0e0e0; /* Borde sutil */
+    border: 1px solid #e0e0e0; 
     border-radius: 10px;
     padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra más elegante */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
     height: fit-content;
     position: sticky;
-    top: 100px; /* Se queda fija al hacer scroll */
+    top: 100px; /* Fijar al hacer scroll */
 }
 
 .price-summary {
@@ -76,7 +74,7 @@
 }
 
 .shipping {
-    color: #008a00; /* Verde sutil para envío */
+    color: #008a00; 
     margin-bottom: 20px;
     font-size: 0.95rem;
     display: flex;
@@ -96,32 +94,32 @@
     background-color: #f9f9f9;
 }
 
-/* === BOTONES (Adaptados a tu marca) === */
+/* BOTONES */
 .action-buttons {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-/* Botón Principal: Cyan (Igual que el Header) */
+/* Botón Principal */
 .btn-main {
     background-color: #8beffa; 
     color: #333;
     font-weight: bold;
     border: none;
     padding: 12px;
-    border-radius: 8px; /* Bordes menos redondos, más modernos */
+    border-radius: 8px; 
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     font-size: 1rem;
 }
 
 .btn-main:hover {
-    background-color: #6bdce8; /* Un poco más oscuro al pasar mouse */
+    background-color: #6bdce8; 
     transform: translateY(-2px);
 }
 
-/* Botón Secundario: Negro (Igual que botones "Ver Todo") */
+/* Botón Secundario */
 .btn-secondary {
     background-color: #333;
     color: white;
@@ -138,9 +136,9 @@
     background-color: #555;
 }
 
-/* === SECCIÓN EXTRA (Imágenes Perronas) === */
+/* SECCIÓN EXTRA (Imágenes Perronas) */
 .extra-images {
-    background-color: #dcdcdc; /* El gris de tus tarjetas del Home */
+    background-color: #dcdcdc; 
     padding: 30px;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -162,29 +160,28 @@
 .gallery-item {
     width: 200px;
     height: 150px;
-    background: white; /* Contenedores blancos sobre fondo gris */
+    background: white; 
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    /* Aquí podrías poner background-image si tuvieras más fotos */
 }
 
-/* === SIMILARES === */
+/* SIMILARES */
 .similar-products h3 {
     margin-bottom: 20px;
     color: #333;
-    border-left: 5px solid #8beffa; /* Detalle de diseño */
+    border-left: 5px solid #8beffa; 
     padding-left: 10px;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
     .product-top {
-        grid-template-columns: 1fr; /* Todo en una columna en tablet/móvil */
+        grid-template-columns: 1fr; 
     }
     .detail-image img {
         max-height: 300px;
     }
     .buy-box {
-        position: static; /* Ya no es sticky en móvil */
+        position: static;
     }
 }

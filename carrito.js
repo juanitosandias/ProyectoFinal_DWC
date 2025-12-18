@@ -4,11 +4,11 @@ const itemsContainer = document.getElementById('cart-items-container');
 const summaryList = document.getElementById('summary-list');
 const totalPriceEl = document.getElementById('total-price');
 
-// Conexión a DB
+// Conexión a DB //
 const dbName = "CoolCenterDB";
 let db;
 
-// === CORRECCIÓN CLAVE: CAMBIAR 1 POR 2 ===
+// BD Version 2 //
 const request = indexedDB.open(dbName, 2);
 
 request.onsuccess = (e) => {
@@ -23,7 +23,7 @@ request.onerror = (e) => {
 
 // 1. LEER DE INDEXEDDB
 function cargarCarritoDesdeDB() {
-    // Verificamos si existe el store 'cart' antes de intentar leer
+    // Verificar si existe el carrito //
     if (!db.objectStoreNames.contains("cart")) {
         console.log("El almacén 'cart' no existe todavía.");
         itemsContainer.innerHTML = '<p>Tu carrito está vacío.</p>';
@@ -41,13 +41,13 @@ function cargarCarritoDesdeDB() {
     };
 }
 
-// 2. DIBUJAR
+// DIBUJAR //
 function renderItems() {
     itemsContainer.innerHTML = '';
 
     if(productosCarrito.length === 0) {
         itemsContainer.innerHTML = '<p>Tu carrito está vacío.</p>';
-        updateSummary(); // Limpiar resumen también
+        updateSummary(); // Limpiar resumen //
         return;
     }
 
@@ -90,25 +90,24 @@ function renderItems() {
     });
 }
 
-// 3. ACTUALIZAR ESTADO (Visual y DB opcional)
+// ACTUALIZAR ESTADO //
 function toggleSelect(id) {
     const producto = productosCarrito.find(p => p.id === id);
     if (producto) {
         producto.seleccionado = !producto.seleccionado;
-        // Opcional: Actualizar selección en DB si quisieras que persista
         renderItems();
         updateSummary();
     }
 }
 
-// 4. ELIMINAR
+// ELIMINAR //
 function eliminarDelCarrito(id) {
     const tx = db.transaction(["cart"], "readwrite");
     const store = tx.objectStore("cart");
     store.delete(id);
 
     tx.oncomplete = () => {
-        // Recargar la lista desde la memoria o DB
+        // Recargar la lista desde la BD //
         cargarCarritoDesdeDB();
         Toastify({
             text: "Producto eliminado",
@@ -118,12 +117,12 @@ function eliminarDelCarrito(id) {
     };
 }
 
-// 5. RESUMEN
+// RESUMEN //
 function updateSummary() {
     summaryList.innerHTML = '';
     let total = 0;
     
-    // Solo sumamos si hay items en el carrito
+    // Sumamos si hay items en el carrito
     if(productosCarrito.length > 0) {
         const seleccionados = productosCarrito.filter(p => p.seleccionado);
 

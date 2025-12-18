@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #f0f2f5; /* Gris muy suave para el fondo */
+    background-color: #f0f2f5;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -25,13 +25,13 @@ body {
 .login-card {
     background: white;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Sombra elegante */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
     overflow: hidden;
     position: relative;
     text-align: center;
 }
 
-/* El botón X de cerrar */
+/* Botón X para cerrar */
 .close-btn {
     position: absolute;
     top: 15px;
@@ -47,9 +47,9 @@ body {
     transform: scale(1.1);
 }
 
-/* La parte superior CIAN */
+/* La parte superior */
 .card-header {
-    background-color: #8beffa; /* Tu color cian */
+    background-color: #8beffa; 
     height: 120px;
     position: relative;
     display: flex;
@@ -57,7 +57,7 @@ body {
     align-items: flex-end;
 }
 
-/* El Círculo del Logo */
+
 .logo-container {
     background-color: white;
     width: 100px;
@@ -79,7 +79,7 @@ body {
 
 /* Cuerpo del formulario */
 .card-body {
-    padding: 60px 30px 40px 30px; /* Padding superior alto para compensar el logo */
+    padding: 60px 30px 40px 30px; 
 }
 
 h2 {
@@ -121,7 +121,7 @@ h2 {
 
 .input-wrapper input {
     width: 100%;
-    padding: 12px 15px 12px 40px; /* Espacio a la izquierda para el icono */
+    padding: 12px 15px 12px 40px; 
     border: 2px solid #eee;
     border-radius: 8px;
     outline: none;

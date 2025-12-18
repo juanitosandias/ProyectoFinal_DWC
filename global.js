@@ -7,16 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let allProducts = [];
     let db;
 
-    // === IMPORTANTE: MANTENER VERSIÓN 2 ===
+    // Version 2 BD
     const request = indexedDB.open("CoolCenterDB", 2);
 
     request.onupgradeneeded = (event) => {
         const dbResult = event.target.result;
-        // Si no existe el almacén de carrito, lo creamos
+        // Crear carrito
         if (!dbResult.objectStoreNames.contains("cart")) {
             dbResult.createObjectStore("cart", { keyPath: "id" });
         }
-        // Si no existe el de usuarios, lo creamos
+        // Crear usuario
         if (!dbResult.objectStoreNames.contains("users")) {
             dbResult.createObjectStore("users", { keyPath: "email" });
         }
@@ -102,19 +102,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const transaction = db.transaction(["cart"], "readwrite");
             const store = transaction.objectStore("cart");
             
-            // Guardamos el producto con propiedad seleccionado: true
+            // Guardar producto
             const itemParaGuardar = { ...productoEncontrado, seleccionado: true };
             const requestAdd = store.put(itemParaGuardar);
 
             requestAdd.onsuccess = () => {
-                // === AQUÍ ESTÁ EL CAMBIO DE ALERTA ===
+                // Toastify de añadido //
                 Toastify({
                     text: `✅ ${productoEncontrado.nombre} añadido`,
-                    duration: 2000, // Dura 2 segundos
-                    gravity: "bottom", // Aparece abajo
-                    position: "right", // A la derecha
+                    duration: 2000, 
+                    gravity: "bottom",
+                    position: "right", 
                     style: {
-                        background: "#333", // Color oscuro elegante
+                        background: "#333", 
                         borderRadius: "10px"
                     }
                 }).showToast();
